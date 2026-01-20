@@ -55,6 +55,14 @@ def load_all_data(data_dir: Optional[str] = None, use_original: bool = True) -> 
     elif data_dir is None:
         data_dir = RAW_DATA_DIR
     
+    # Cloud compatibility: if the constructed path doesn't exist, try the project default
+    if not os.path.exists(data_dir):
+        print(f"Warning: Primary data directory not found: {data_dir}. Falling back to default: {RAW_DATA_DIR}")
+        data_dir = RAW_DATA_DIR
+
+    if not os.path.exists(data_dir):
+        raise FileNotFoundError(f"No data files found. Checked: {data_dir}")
+    
     dfs = []
     total_records = 0
     

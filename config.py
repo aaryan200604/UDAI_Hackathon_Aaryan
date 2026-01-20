@@ -9,8 +9,8 @@ RAW_DATA_DIR = os.path.join(DATA_DIR, 'raw')
 PROCESSED_DATA_DIR = os.path.join(DATA_DIR, 'processed')
 REPORTS_DIR = os.path.join(PROJECT_ROOT, 'reports')
 
-# Original data location
-ORIGINAL_DATA_DIR = r'd:\uidai\api_data_aadhar_enrolment\project'
+# Original data location - making it relative for cloud compatibility
+ORIGINAL_DATA_DIR = os.path.join(DATA_DIR, 'raw')
 
 # Data files
 DATA_FILES = [
